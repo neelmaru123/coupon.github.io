@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scratch Coupon</title>
+  <style>
+    body {
+      background-color: black;
+      font-family: Arial, sans-serif;
+    }
+
+    .coupon {
+      width: 300px;
+      max-width: 100%;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      padding: 20px;
+      margin: 0 auto;
+      margin-top: 100px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .coupon h2 {
+      color: #333;
+      font-size: 20px;
+      margin-top: 0;
+    }
+
+    .coupon p {
+      color: #666;
+      font-size: 16px;
+    }
+
+    .coupon .code {
+      background-color: #f0f0f0;
+      color: #333;
+      font-size: 24px;
+      padding: 10px;
+      margin: 20px 0;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .coupon .code:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ddd;
+    }
+
+    .coupon .code.scratched:before {
+      background-color: transparent;
+    }
+
+    .logo {
+      height: auto;
+      width: auto;
+      padding-left: 25%;
+    }
+
+    
+
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="logo.png" alt="">
+  </div>
+  <div class="coupon">
+    <h2>Special Offer!</h2>
+    <p>get subcribers :</p>
+    <div class="code" onclick="scratchCoupon()">Scratch to reveal</div>
+    <p id="result" style="display: none;"></p>
+  </div>
+
+  <script>
+    function scratchCoupon() {
+      var randomNumber = Math.floor(Math.random() * 20) + 1;
+      var codeElement = document.querySelector('.code');
+      var resultElement = document.getElementById('result');
+
+      codeElement.classList.add('scratched');
+      resultElement.innerHTML = "Your subscriber is: " + randomNumber;
+      resultElement.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
